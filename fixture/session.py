@@ -22,9 +22,9 @@ class SessionHelper:
         wd = self.app.wd
         return len(wd.find_elements_by_link_text("Logout")) > 0
 
-    def is_logged_in_as(self, username):
+    def is_logged_in_as(self, login):
         wd = self.app.wd
-        return wd.find_elements_by_xpath("//div[@id='top']/form/b").text == "("+username+")"
+        return self.get_logged_user() == login
 
     def get_logged_user(self):
         wd = self.app.wd
